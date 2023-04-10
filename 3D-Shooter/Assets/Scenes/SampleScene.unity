@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 1434792322}
   - component: {fileID: 1434792321}
   m_Layer: 0
-  m_Name: New Game Object(Clone)
+  m_Name: Watch-Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
