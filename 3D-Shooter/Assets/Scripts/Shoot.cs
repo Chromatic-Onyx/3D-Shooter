@@ -3,7 +3,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     private float range = 100f;
-    // private float damage = 10f;
+    private float damage = 10f;
 
     public Camera cam;
 
@@ -20,7 +20,11 @@ public class Shoot : MonoBehaviour
         RaycastHit hits;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hits, range))
         {
-            Debug.Log(hits.transform.name);
+            Break target = hits.transform.GetComponent<Break>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
         }
     }
 }
