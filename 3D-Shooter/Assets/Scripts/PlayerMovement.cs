@@ -19,9 +19,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Input
         float xInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
-
+        // Jump
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ground);
         if (isGrounded && velocity.y < 0)
         {
@@ -32,10 +33,10 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpStrength * -2 * gravity);
         }
-
+        // Forward Movement
         Vector3 move = transform.right * xInput + transform.forward * yInput;
         controller.Move(move * speed * Time.deltaTime);
-
+        // Gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
