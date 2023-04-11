@@ -46,6 +46,16 @@ public class PlayerMovement : MonoBehaviour
             speed = walkSpeed;
         }
 
+        // Crouch
+        if (isGrounded && Input.GetKey(KeyCode.LeftControl))
+        {
+            controller.height = 1.5f;
+        }
+        else
+        {
+            controller.height = 2.1f;
+        }
+
         // Forward Movement
         Vector3 move = transform.right * xInput + transform.forward * yInput;
         controller.Move(move * speed * Time.deltaTime);
