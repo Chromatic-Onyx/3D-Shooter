@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
     private float damage = 10f;
 
     public Camera cam;
+    public ParticleSystem muzzleFlash;
 
     // Update is called once per frame
     void Update()
@@ -17,6 +18,8 @@ public class Shoot : MonoBehaviour
     }
     void ShootGun()
     {
+        muzzleFlash.Play();
+
         RaycastHit hits;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hits, range))
         {
