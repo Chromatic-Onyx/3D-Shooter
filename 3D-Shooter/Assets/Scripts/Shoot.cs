@@ -6,13 +6,22 @@ public class Shoot : MonoBehaviour
     [SerializeField] float damage = 10f;
     [SerializeField] int fireRate = 4;
     private float lastFired = 0f;
-    public bool canShoot = true;
     public Camera cam;
     public ParticleSystem muzzleFlash;
+
+    public bool canShoot = true;
+    public int ammo = 40;
+    public int magSize = 40;
+    public int ammoStash = 999;
 
     // Update is called once per frame
     void Update()
     {
+        if (ammo <= 0)
+        {
+            canShoot = false;
+        }
+
         if (canShoot && Input.GetButton("Fire1") && (Time.time - lastFired > 1f / fireRate))
         {
 
@@ -28,7 +37,7 @@ public class Shoot : MonoBehaviour
     void ShootGun()
     {
         muzzleFlash.Play();
-
+        ammo -= 1;
         RaycastHit hits;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hits, range))
         {
