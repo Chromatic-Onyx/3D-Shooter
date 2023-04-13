@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] float damage = 10f;
     [SerializeField] int fireRate = 4;
     private float lastFired = 0f;
+    public bool canShoot = true;
 
     public Camera cam;
     public ParticleSystem muzzleFlash;
@@ -13,7 +14,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1") && (Time.time - lastFired > 1f / fireRate))
+        if (canShoot && Input.GetButton("Fire1") && (Time.time - lastFired > 1f / fireRate))
         {
 
             if (Time.time - lastFired > 1f / fireRate)
