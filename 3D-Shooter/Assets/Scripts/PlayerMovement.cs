@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     private float groundDistance = 0.4f;
     public LayerMask ground;
-    private float jumpStrength = 10f;
+    private float jumpStrength = 25f;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,10 +29,9 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
         }
 
-        if (Input.GetButtonDown("Crouch"))
+        if (grounded && Input.GetButtonDown("Crouch"))
         {
-            float scale = transform.localScale.y;
-            scale *= 0.75f;
+            Debug.Log("Crouch");
         }
 
     }
