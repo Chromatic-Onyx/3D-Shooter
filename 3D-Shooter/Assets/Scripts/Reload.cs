@@ -47,7 +47,6 @@ public class Reload : MonoBehaviour
 
     void stopReloading()
     {
-        Debug.Log("stopped");
         Gun2IsReloading = false;
         Gun1IsReloading = false;
         Gun2ShootScript.canShoot = true;
