@@ -7,7 +7,6 @@ public class Shoot : MonoBehaviour
     [SerializeField] int fireRate = 4;
     private float lastFired = 0f;
     public bool canShoot = true;
-
     public Camera cam;
     public ParticleSystem muzzleFlash;
 

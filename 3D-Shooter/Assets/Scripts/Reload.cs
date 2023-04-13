@@ -9,8 +9,8 @@ public class Reload : MonoBehaviour
     public Shoot Gun2ShootScript;
     public Shoot Gun1ShootScript;
     public WeaponSwitch WeaponScript;
-    private bool Gun1IsReloading = false;
-    private bool Gun2IsReloading = false;
+    public bool Gun1IsReloading = false;
+    public bool Gun2IsReloading = false;
 
     // Start is called before the first frame update
     void Start()
