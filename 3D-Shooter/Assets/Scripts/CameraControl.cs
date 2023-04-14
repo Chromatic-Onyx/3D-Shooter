@@ -9,7 +9,7 @@ public class CameraControl : MonoBehaviour
     private float mouseY;
     private float mouseSense = 500.0f;
     public Transform playerBody;
-    float xRotation = 0f;
+    public float xRotation = 0f;
 
     // Start is called before the first frame update
     void Start()
