@@ -11,34 +11,33 @@ public class Reload : MonoBehaviour
     public WeaponSwitch WeaponScript;
     public bool Gun1IsReloading = false;
     public bool Gun2IsReloading = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public bool canReload = true;
     // Update is called once per frame
     void Update()
     {
+        
         // gun 2 reload
-        if (Input.GetKeyDown(KeyCode.R) && WeaponScript.isGun2Active)
+        if (Input.GetKeyDown(KeyCode.R) && WeaponScript.isGun2Active && Gun2ShootScript.ammoStash > 0 && canReload)
         {
             Gun2Animator.SetBool("isReloading", true);
             Gun2IsReloading = true;
             Gun2ShootScript.canShoot = false;
             Gun2ShootScript.ammo = Gun2ShootScript.magSize;
             Gun2ShootScript.ammoStash -= Gun2ShootScript.magSize;
+            canReload = false;
+
+            
 
         }
         // gun 1 reload
-        else if (Input.GetKeyDown(KeyCode.R) && WeaponScript.isGun1Active)
+        else if (Input.GetKeyDown(KeyCode.R) && WeaponScript.isGun1Active && Gun1ShootScript.ammoStash > 0 && canReload)
         {
             Gun1Animator.SetBool("isReloading", true);
             Gun1IsReloading = true;
             Gun1ShootScript.canShoot = false;
             Gun1ShootScript.ammo = Gun1ShootScript.magSize;
             Gun1ShootScript.ammoStash -= Gun1ShootScript.magSize;
+            canReload = false;
         }
         // gun 2 stop reloading
         else if (Gun2IsReloading)
@@ -54,6 +53,7 @@ public class Reload : MonoBehaviour
 
     void stopReloading()
     {
+        canReload = true;
         Gun2IsReloading = false;
         Gun1IsReloading = false;
         Gun2ShootScript.canShoot = true;

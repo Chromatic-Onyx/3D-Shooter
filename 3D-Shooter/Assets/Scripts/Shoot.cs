@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
     public int ammo = 40;
     public int magSize = 40;
     public int ammoStash = 999;
-
+    
     // Update is called once per frame
     void Update()
     {
