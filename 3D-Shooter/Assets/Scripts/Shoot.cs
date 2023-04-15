@@ -68,7 +68,7 @@ public class Shoot : MonoBehaviour
     void recoil()
     {
         rotateScale++;
-        Vector3 rotationVector = new Vector3(0f, 0f, -verticalRecoil);
+        Vector3 rotationVector = new Vector3(verticalRecoil, 0f, 0f);
         gun2.transform.Rotate(rotationVector);
         if (rotateScale % 2 == 1)
         {
@@ -85,7 +85,7 @@ public class Shoot : MonoBehaviour
     void stopRecoil()
     {
         
-        gun2.transform.Rotate(new Vector3(0f, 0f, verticalRecoil * rotateCount));
+        gun2.transform.Rotate(new Vector3(-verticalRecoil * rotateCount, 0f, 0f));
         if (rotateScale % 2 == 1)
         {
             gun2.transform.Rotate(new Vector3(0f, -horizontalRecoil, 0f));

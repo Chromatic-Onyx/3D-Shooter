@@ -13,12 +13,13 @@ public class Reload : MonoBehaviour
     public bool Gun2IsReloading = false;
     public bool canReload = true;
     public bool stopReload;
+    public Zoom zoomScript;
     // Update is called once per frame
     void Update()
     {
         // Debug.Log(Gun2ShootScript.canShoot);
         // gun 2 reload
-        if (Input.GetKeyDown(KeyCode.R) && WeaponScript.isGun2Active && Gun2ShootScript.ammoStash > 0 && canReload)
+        if (Input.GetKeyDown(KeyCode.R) && WeaponScript.isGun2Active && Gun2ShootScript.ammoStash > 0 && canReload && !zoomScript.isAiming)
         {
             Gun2Animator.SetBool("isReloading", true);
             Gun2IsReloading = true;
